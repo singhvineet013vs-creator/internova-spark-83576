@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Kashmir Government Theme - Light Mode */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+
+    /* Navy Blue - Primary government color */
+    --primary: 217 85% 31%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 217 85% 45%;
+
+    /* Snow White/Grey - Secondary */
+    --secondary: 225 27% 98%;
+    --secondary-foreground: 217 85% 31%;
+
+    /* Muted - Light grey tones */
+    --muted: 225 27% 98%;
+    --muted-foreground: 0 0% 40%;
+
+    /* Saffron - Accent color */
+    --accent: 30 100% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    /* India Green - Success */
+    --success: 117 89% 29%;
+    --success-foreground: 0 0% 100%;
+
+    /* Chinar Red - Warning */
+    --warning: 0 68% 42%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 68% 42%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Kashmir Kahwa Green - Tertiary */
+    --tertiary: 82 39% 30%;
+    --tertiary-foreground: 0 0% 100%;
+
+    /* Mountain Sky Blue */
+    --sky: 197 71% 73%;
+    --sky-foreground: 217 85% 31%;
+
+    --border: 225 27% 90%;
+    --input: 225 27% 90%;
+    --ring: 30 100% 60%;
+
+    --radius: 0.75rem;
+
+    /* Kashmir-inspired gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 85% 31%), hsl(217 85% 45%));
+    --gradient-hero: linear-gradient(180deg, hsl(197 71% 73%), hsl(0 0% 100%));
+    --gradient-secondary: linear-gradient(135deg, hsl(225 27% 98%), hsl(0 0% 100%));
+    --gradient-accent: linear-gradient(135deg, hsl(30 100% 60%), hsl(30 100% 70%));
+
+    /* Government-style shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -2px hsl(0 0% 0% / 0.05);
+    --shadow-card: 0 2px 8px hsl(0 0% 0% / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - maintains government feel */
+    --background: 217 85% 10%;
+    --foreground: 0 0% 95%;
+
+    --card: 217 85% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 217 85% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 30 100% 60%;
+    --primary-foreground: 217 85% 10%;
+
+    --secondary: 217 85% 20%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 217 85% 20%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 30 100% 60%;
+    --accent-foreground: 217 85% 10%;
+
+    --success: 117 89% 35%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 68% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 85% 25%;
+    --input: 217 85% 25%;
+    --ring: 30 100% 60%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+  }
+
+  body.font-large {
+    font-size: 18px;
+  }
+
+  body.font-small {
+    font-size: 14px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-primary;
+  }
+}
+
+@layer utilities {
+  /* Jali Pattern Background */
+  .jali-pattern {
+    background-image: 
+      repeating-linear-gradient(45deg, transparent, transparent 10px, hsl(var(--primary) / 0.02) 10px, hsl(var(--primary) / 0.02) 20px),
+      repeating-linear-gradient(-45deg, transparent, transparent 10px, hsl(var(--accent) / 0.02) 10px, hsl(var(--accent) / 0.02) 20px);
+  }
+
+  /* Ashoka Chakra Pattern */
+  .ashoka-pattern {
+    background-image: radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Micro-animations */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px hsl(var(--primary) / 0.3);
+  }
+
+  .saffron-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .saffron-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -4px;
+    left: 0;
+    background: hsl(var(--accent));
+    transition: width 0.3s ease;
+  }
+
+  .saffron-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Mountain ridge divider */
+  .mountain-divider {
+    background: linear-gradient(135deg, transparent 48%, hsl(var(--border)) 48%, hsl(var(--border)) 52%, transparent 52%);
+    background-size: 40px 40px;
+    height: 2px;
+  }
+}
