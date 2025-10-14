@@ -27,6 +27,13 @@ const Companies = lazy(() => import("./pages/college/Companies"));
 const Reports = lazy(() => import("./pages/college/Reports"));
 const Certificates = lazy(() => import("./pages/college/Certificates"));
 
+// Company routes
+const ManageApplications = lazy(() => import("./pages/company/ManageApplications"));
+const Candidates = lazy(() => import("./pages/company/Candidates"));
+const MyInterns = lazy(() => import("./pages/company/MyInterns"));
+const CompanyFeedback = lazy(() => import("./pages/company/Feedback"));
+const CompanySettings = lazy(() => import("./pages/company/Settings"));
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -55,6 +62,13 @@ const App = () => (
               <Route path="/dashboard/college/companies" element={<Companies />} />
               <Route path="/dashboard/college/reports" element={<Reports />} />
               <Route path="/dashboard/college/certificates" element={<Certificates />} />
+              
+              {/* Company Dashboard Routes */}
+              <Route path="/dashboard/company/manage-applications" element={<ManageApplications />} />
+              <Route path="/dashboard/company/candidates" element={<Candidates />} />
+              <Route path="/dashboard/company/my-interns" element={<MyInterns />} />
+              <Route path="/dashboard/company/feedback" element={<CompanyFeedback />} />
+              <Route path="/dashboard/company/settings" element={<CompanySettings />} />
               
               {/* Legacy routes for backwards compatibility */}
               <Route path="/student-dashboard" element={<Dashboard />} />
