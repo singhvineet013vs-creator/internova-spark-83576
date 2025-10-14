@@ -36,32 +36,32 @@ export default function Sidebar({ className }: SidebarProps) {
     switch (profile?.role) {
       case 'student':
         return [
-          { icon: BarChart3, label: 'Dashboard', path: '/dashboard', active: true },
-          { icon: Search, label: 'Find Internships', path: '/internships' },
-          { icon: FileText, label: 'My Applications', path: '/applications', badge: '3' },
-          { icon: BookOpen, label: 'My Logbook', path: '/logbook' },
-          { icon: Award, label: 'Reports & Certificates', path: '/certificates' },
-          { icon: GraduationCap, label: 'Skill Courses', path: '/courses' },
-          { icon: MessageSquare, label: 'Feedback', path: '/feedback' },
+          { icon: BarChart3, label: 'Dashboard', path: '/dashboard' },
+          { icon: Search, label: 'Find Internships', path: '/dashboard/student/find-internships' },
+          { icon: FileText, label: 'My Applications', path: '/dashboard/student/my-applications' },
+          { icon: BookOpen, label: 'My Logbook', path: '/dashboard/student/my-logbook' },
+          { icon: Award, label: 'Reports & Certificates', path: '/dashboard/student/reports-certificates' },
+          { icon: GraduationCap, label: 'Skill Courses', path: '/dashboard/student/skill-courses' },
+          { icon: MessageSquare, label: 'Feedback', path: '/dashboard/student/feedback' },
         ];
       case 'company':
         return [
-          { icon: BarChart3, label: 'Dashboard', path: '/dashboard', active: true },
-          { icon: FileText, label: 'Manage Applications', path: '/manage-applications' },
-          { icon: Users, label: 'Candidates', path: '/candidates' },
-          { icon: User, label: 'My Interns', path: '/interns' },
-          { icon: MessageSquare, label: 'Feedback', path: '/feedback' },
-          { icon: Settings, label: 'Settings', path: '/settings' },
+          { icon: BarChart3, label: 'Dashboard', path: '/dashboard' },
+          { icon: FileText, label: 'Manage Applications', path: '/dashboard/company/manage-applications' },
+          { icon: Users, label: 'Candidates', path: '/dashboard/company/candidates' },
+          { icon: User, label: 'My Interns', path: '/dashboard/company/my-interns' },
+          { icon: MessageSquare, label: 'Feedback', path: '/dashboard/company/feedback' },
+          { icon: Settings, label: 'Settings', path: '/dashboard/company/settings' },
         ];
       case 'college_admin':
         return [
-          { icon: BarChart3, label: 'Dashboard', path: '/dashboard', active: true },
-          { icon: Users, label: 'Students', path: '/students' },
-          { icon: Building2, label: 'Companies', path: '/companies' },
-          { icon: FileText, label: 'Reports', path: '/reports' },
-          { icon: Award, label: 'Certificates', path: '/certificates' },
-          { icon: MessageSquare, label: 'Feedback', path: '/feedback' },
-          { icon: Settings, label: 'Settings', path: '/settings' },
+          { icon: BarChart3, label: 'Dashboard', path: '/dashboard' },
+          { icon: Users, label: 'Students', path: '/dashboard/college/students' },
+          { icon: Building2, label: 'Companies', path: '/dashboard/college/companies' },
+          { icon: FileText, label: 'Reports', path: '/dashboard/college/reports' },
+          { icon: Award, label: 'Certificates', path: '/dashboard/college/certificates' },
+          { icon: MessageSquare, label: 'Feedback', path: '/dashboard/college/feedback' },
+          { icon: Settings, label: 'Settings', path: '/dashboard/college/settings' },
         ];
       default:
         return [];
@@ -98,28 +98,25 @@ export default function Sidebar({ className }: SidebarProps) {
 
       {/* Navigation */}
       <nav className="flex-1 p-4 space-y-2">
-        {navigationItems.map((item) => (
-          <Button
-            key={item.path}
-            variant={item.active ? "default" : "ghost"}
-            className={cn(
-              "w-full justify-start gap-3 h-12",
-              isCollapsed && "px-3 justify-center"
-            )}
-          >
-            <item.icon className="w-5 h-5 flex-shrink-0" />
-            {!isCollapsed && (
-              <>
+        {navigationItems.map((item) => {
+          const isActive = location.pathname === item.path;
+          return (
+            <Button
+              key={item.path}
+              variant={isActive ? "default" : "ghost"}
+              className={cn(
+                "w-full justify-start gap-3 h-12",
+                isCollapsed && "px-3 justify-center"
+              )}
+              onClick={() => navigate(item.path)}
+            >
+              <item.icon className="w-5 h-5 flex-shrink-0" />
+              {!isCollapsed && (
                 <span className="flex-1 text-left">{item.label}</span>
-                {item.badge && (
-                  <span className="bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full">
-                    {item.badge}
-                  </span>
-                )}
-              </>
-            )}
-          </Button>
-        ))}
+              )}
+            </Button>
+          );
+        })}
       </nav>
 
       {/* Profile & Sign Out */}

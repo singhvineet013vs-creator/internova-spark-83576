@@ -13,6 +13,20 @@ const AuthPage = lazy(() => import("./components/auth/AuthPage"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
+// Student routes
+const FindInternships = lazy(() => import("./pages/student/FindInternships"));
+const MyApplications = lazy(() => import("./pages/student/MyApplications"));
+const MyLogbook = lazy(() => import("./pages/student/MyLogbook"));
+const ReportsCertificates = lazy(() => import("./pages/student/ReportsCertificates"));
+const SkillCourses = lazy(() => import("./pages/student/SkillCourses"));
+const StudentFeedback = lazy(() => import("./pages/student/Feedback"));
+
+// College routes
+const Students = lazy(() => import("./pages/college/Students"));
+const Companies = lazy(() => import("./pages/college/Companies"));
+const Reports = lazy(() => import("./pages/college/Reports"));
+const Certificates = lazy(() => import("./pages/college/Certificates"));
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -27,9 +41,26 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/auth" element={<AuthPage />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              
+              {/* Student Dashboard Routes */}
+              <Route path="/dashboard/student/find-internships" element={<FindInternships />} />
+              <Route path="/dashboard/student/my-applications" element={<MyApplications />} />
+              <Route path="/dashboard/student/my-logbook" element={<MyLogbook />} />
+              <Route path="/dashboard/student/reports-certificates" element={<ReportsCertificates />} />
+              <Route path="/dashboard/student/skill-courses" element={<SkillCourses />} />
+              <Route path="/dashboard/student/feedback" element={<StudentFeedback />} />
+              
+              {/* College Dashboard Routes */}
+              <Route path="/dashboard/college/students" element={<Students />} />
+              <Route path="/dashboard/college/companies" element={<Companies />} />
+              <Route path="/dashboard/college/reports" element={<Reports />} />
+              <Route path="/dashboard/college/certificates" element={<Certificates />} />
+              
+              {/* Legacy routes for backwards compatibility */}
               <Route path="/student-dashboard" element={<Dashboard />} />
               <Route path="/faculty-dashboard" element={<Dashboard />} />
               <Route path="/industry-dashboard" element={<Dashboard />} />
+              
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
