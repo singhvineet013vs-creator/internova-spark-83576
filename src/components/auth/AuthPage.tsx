@@ -102,8 +102,8 @@ export default function AuthPage() {
         <div className="absolute inset-0 bg-gradient-primary opacity-80" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
-            <h1 className="text-4xl font-bold mb-2">Prashiskshan</h1>
-            <p className="text-xl opacity-90">Connecting Students, Colleges, and Industry</p>
+            <h1 className="text-4xl font-bold mb-2">Internify</h1>
+            <p className="text-xl opacity-90">AI & Blockchain-Powered Internships</p>
           </div>
         </div>
       </div>
