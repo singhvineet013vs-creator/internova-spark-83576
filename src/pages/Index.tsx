@@ -118,11 +118,11 @@ const Index = () => {
         <div className="relative container mx-auto px-4 py-24">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold text-primary mb-4">
-              Prashiskshan
+              Internify
             </h1>
             <div className="w-24 h-1 bg-accent mx-auto mb-6"></div>
             <p className="text-2xl md:text-3xl text-primary font-bold mb-4">
-              One Nation, One Internship Platform
+              AI & Blockchain-Powered Internship Platform
             </p>
             <div className="w-16 h-1 bg-warning mx-auto mb-8"></div>
             <p className="text-lg md:text-xl text-foreground font-semibold mb-6">
@@ -287,7 +287,7 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <GraduationCap className="w-7 h-7 text-accent" />
-            <span className="text-2xl font-bold text-primary-foreground">Prashiskshan</span>
+            <span className="text-2xl font-bold text-primary-foreground">Internify</span>
           </div>
           <div className="w-16 h-1 bg-accent mx-auto mb-4"></div>
           <p className="text-primary-foreground/90 text-base">
