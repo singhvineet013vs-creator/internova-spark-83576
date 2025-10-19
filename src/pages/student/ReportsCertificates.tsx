@@ -355,6 +355,40 @@ export default function ReportsCertificates() {
                           </div>
                         </div>
 
+                        {/* Mock QR Code for Blockchain Verification */}
+                        {cert.verified && (
+                          <div className="p-4 bg-success/5 rounded-lg border border-success/20">
+                            <div className="flex items-start gap-4">
+                              <div className="w-24 h-24 bg-white p-2 rounded border-2 border-success flex-shrink-0">
+                                <svg viewBox="0 0 100 100" className="w-full h-full">
+                                  {/* Mock QR Code Pattern */}
+                                  <rect x="0" y="0" width="20" height="20" fill="#000"/>
+                                  <rect x="80" y="0" width="20" height="20" fill="#000"/>
+                                  <rect x="0" y="80" width="20" height="20" fill="#000"/>
+                                  <rect x="40" y="10" width="10" height="10" fill="#000"/>
+                                  <rect x="60" y="10" width="10" height="10" fill="#000"/>
+                                  <rect x="10" y="40" width="10" height="10" fill="#000"/>
+                                  <rect x="30" y="40" width="10" height="10" fill="#000"/>
+                                  <rect x="50" y="40" width="10" height="10" fill="#000"/>
+                                  <rect x="70" y="40" width="10" height="10" fill="#000"/>
+                                  <rect x="40" y="60" width="10" height="10" fill="#000"/>
+                                  <rect x="60" y="60" width="10" height="10" fill="#000"/>
+                                  <rect x="20" y="70" width="10" height="10" fill="#000"/>
+                                </svg>
+                              </div>
+                              <div className="flex-1 space-y-1">
+                                <p className="text-xs font-medium text-success">Blockchain Verified</p>
+                                <p className="text-xs text-muted-foreground font-mono">
+                                  Hash: 0x{cert.id}a7f9...e3d2
+                                </p>
+                                <p className="text-xs text-muted-foreground">
+                                  Scan to verify authenticity on blockchain
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
                         <div className="flex gap-2 pt-2">
                           <Button className="flex-1 bg-gradient-to-r from-primary to-primary-glow text-white">
                             <Download className="w-4 h-4 mr-2" />
